@@ -21,7 +21,7 @@ class HomeViewModel(
 		private val TAG = HomeViewModel::class.simpleName
 	}
 	
-	val articleList = MutableLiveData<List<IHomeSection>>()
+	val itemsToBeAppended = MutableLiveData<List<IHomeSection>>()
 	
 	private var paginationConfig = HomePaginationConfig(0, true, NEWS_LIST_PAGE_SIZE)
 	
@@ -33,7 +33,8 @@ class HomeViewModel(
 			}
 			when (result) {
 				is UseCaseResult.Success -> {
-					articleList.value = mutableListOf(SectionHeader("Top News"), result.data)
+					addItems(listOf(SectionHeader("Top News")))
+					addItems(listOf(result.data))
 				}
 				else -> {
 					// do nothing
@@ -60,20 +61,27 @@ class HomeViewModel(
 				is UseCaseResult.Success -> {
 					Logger.d(TAG, "fetchNextPagePopularNews : Success")
 					val list = newsListResult.data.first
-					articleList.value = list
 					paginationConfig.apply {
 						if (list.isNotEmpty()) {
 							currentPage++
 						}
 						nextPage = list.size == NEWS_LIST_PAGE_SIZE
 					}
+					if (paginationConfig.currentPage == 1) {
+						addItems(listOf(SectionHeader("Popular News")))
+					}
+					addItems(list)
 				}
 				is UseCaseResult.Error -> {
 					Logger.d(TAG, "fetchNextPageNewsList : Error - ${newsListResult.exception}")
-					articleList.value = null
+					itemsToBeAppended.value = null
 				}
 			}
 		}
+	}
+	
+	private fun addItems(list : List<IHomeSection>) {
+		itemsToBeAppended.value = list
 	}
 	
 	fun resetPagination() {

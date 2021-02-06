@@ -29,7 +29,7 @@ class HomeFragment : BaseFragmentMVVM(), HomeCommunicator {
 	}
 	
 	override fun observeLiveData() {
-		viewModel.articleList.observe(this, { onNewsListAvailable(it) })
+		viewModel.itemsToBeAppended.observe(this, { onNewsListAvailable(it) })
 	}
 	
 	override fun inflateView(parent : ViewGroup, inflater : LayoutInflater) : View? {
