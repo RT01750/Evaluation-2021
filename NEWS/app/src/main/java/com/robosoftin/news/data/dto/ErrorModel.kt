@@ -7,6 +7,9 @@
 
 package com.robosoftin.news.data.dto
 
+import com.robosoftin.news.data.constants.APIConstants
+import retrofit2.HttpException
+
 
 private const val NO_CONNECTION_ERROR_MESSAGE = "No connection!"
 private const val BAD_RESPONSE_ERROR_MESSAGE = "Bad response!"
@@ -87,7 +90,7 @@ data class ErrorModel(
 	
 }
 
-/*fun Exception.toErrorModel() : ErrorModel {
+fun Exception.toErrorModel() : ErrorModel {
 	val errorModel : ErrorModel
 	if (this is HttpException) {
 		errorModel = when (this.code()) {
@@ -103,5 +106,5 @@ data class ErrorModel(
 		errorModel = ErrorModel(ErrorModel.ErrorStatus.NOT_DEFINED)
 	}
 	return errorModel
-}*/
+}
 

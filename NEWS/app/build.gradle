@@ -73,14 +73,12 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-//    implementation appDependencies.material
-//    implementation appDependencies.recyclerview
-   // implementation appDependencies.cardview
-
-//Image loading
+    //Image loading
     implementation "com.github.bumptech.glide:glide:4.11.0"
+
     // for view model scope
-implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+
     /** Retrofit related **/
     implementation "com.squareup.okhttp3:okhttp:4.2.2"
     implementation "com.squareup.retrofit2:retrofit:2.6.2"
@@ -89,7 +87,7 @@ implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
     implementation "com.squareup.okhttp3:logging-interceptor:4.2.2"
     implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
 
-// Koin dependencies
+    // Koin dependencies
     implementation "org.koin:koin-core:2.0.1"
     implementation "org.koin:koin-android:2.0.1"
     implementation "org.koin:koin-androidx-viewmodel:2.0.1"

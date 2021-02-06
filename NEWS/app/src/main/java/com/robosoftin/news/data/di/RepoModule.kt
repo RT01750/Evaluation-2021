@@ -12,10 +12,5 @@ import com.robosoftin.news.data.repo.home.HomeRepo
 import org.koin.dsl.module
 
 val repositoryModule = module {
-	
-	/**
-	 * All repo Initilise
-	 *
-	 **/
 	factory<HomeRepo>(definition = { HomeRepoImpl(get()) })
 }

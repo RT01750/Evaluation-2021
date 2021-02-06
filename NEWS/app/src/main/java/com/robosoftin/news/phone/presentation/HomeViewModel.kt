@@ -21,11 +21,19 @@ class HomeViewModel(
 		private val TAG = HomeViewModel::class.simpleName
 	}
 	
+	/**
+	 * This list is the fresh news items on pagination which should be appended to the adapter list
+	 */
 	val itemsToBeAppended = MutableLiveData<List<IHomeSection>>()
 	
 	private var paginationConfig = HomePaginationConfig(0, true, NEWS_LIST_PAGE_SIZE)
 	
+	/**
+	 * This fetches the top single news and first page of popular news..
+	 * This is only called whe the screen is launched
+	 */
 	fun fetchHomeContent() {
+		//clear all states of pagination (useful when screen refresh functionality)
 		resetPagination()
 		viewModelScope.launch {
 			val result = withContext(Dispatchers.IO) {
@@ -33,6 +41,7 @@ class HomeViewModel(
 			}
 			when (result) {
 				is UseCaseResult.Success -> {
+					//After single top news result success, add section header and append the list
 					addItems(listOf(SectionHeader("Top News")))
 					addItems(listOf(result.data))
 				}
@@ -40,6 +49,7 @@ class HomeViewModel(
 					// do nothing
 				}
 			}
+			//irrespective of the top news result, continue with popular news list
 			fetchNextPagePopularNews()
 		}
 	}
@@ -48,28 +58,36 @@ class HomeViewModel(
 		return paginationConfig.nextPage
 	}
 	
+	/**
+	 * This is called everytime pagination occurs, and the pagination states is held in
+	 * [paginationConfig] variable.. which is updated based on the next results
+	 */
 	fun fetchNextPagePopularNews() {
 		Logger.d(TAG, "fetchNextPagePopularNews")
 		viewModelScope.launch {
 			val newsListResult = withContext(Dispatchers.IO) {
 				homeUseCase.fetchPopularNews(
-						NEWS_LIST_PAGE_SIZE,
-						paginationConfig.currentPage + 1
+						pageSize = NEWS_LIST_PAGE_SIZE,
+						page = paginationConfig.currentPage + 1 //to fetch the next page content
 				)
 			}
 			when (newsListResult) {
 				is UseCaseResult.Success -> {
 					Logger.d(TAG, "fetchNextPagePopularNews : Success")
 					val list = newsListResult.data.first
+					// update paginatin config based on reulsts
 					paginationConfig.apply {
 						if (list.isNotEmpty()) {
 							currentPage++
 						}
 						nextPage = list.size == NEWS_LIST_PAGE_SIZE
 					}
+					
 					if (paginationConfig.currentPage == 1) {
+						// If first set of results, add section header
 						addItems(listOf(SectionHeader("Popular News")))
 					}
+					
 					addItems(list)
 				}
 				is UseCaseResult.Error -> {
@@ -84,7 +102,7 @@ class HomeViewModel(
 		itemsToBeAppended.value = list
 	}
 	
-	fun resetPagination() {
+	private fun resetPagination() {
 		paginationConfig = HomePaginationConfig(0, true, NEWS_LIST_PAGE_SIZE)
 	}
 }

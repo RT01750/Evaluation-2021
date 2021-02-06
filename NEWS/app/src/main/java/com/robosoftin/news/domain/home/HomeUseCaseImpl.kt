@@ -10,20 +10,25 @@ import com.robosoftin.news.domain.mapper.toSingleNews
 
 class HomeUseCaseImpl(val repo : HomeRepo) : HomeUseCase {
 	override suspend fun fetchHomeContent() : UseCaseResult<ArticleEntity> {
-		when (val result = repo.fetchTopNews()) {
+		/**
+		 * This will returns a single top news
+		 */
+		return when (val result = repo.fetchTopNews()) {
 			is RepositoryResult.Success -> {
-				return result.repositoryData.toSingleNews()?.let {
+				result.repositoryData.toSingleNews()?.let {
 					UseCaseResult.Success(it)
-				} ?: UseCaseResult.Error(ErrorModel("", ErrorModel.ErrorStatus.BAD_RESPONSE))
+				} ?: UseCaseResult.Error(ErrorModel("Could not fetch top news", ErrorModel.ErrorStatus.BAD_RESPONSE))
 			}
 			
 			is RepositoryResult.Error -> {
-				return UseCaseResult.Error("")
+				UseCaseResult.Error(result.exception)
 			}
-			
 		}
 	}
 	
+	/**
+	 * Will return a list of popular news, and also the total number of results
+	 */
 	override suspend fun fetchPopularNews(pageSize : Int, page : Int) : UseCaseResult<Pair<List<ArticleEntity>, Int>> {
 		return when (val result = repo.fetchPopularNews(pageSize, page)) {
 			is RepositoryResult.Success -> {
@@ -31,7 +36,7 @@ class HomeUseCaseImpl(val repo : HomeRepo) : HomeUseCase {
 				UseCaseResult.Success(entity)
 			}
 			is RepositoryResult.Error -> {
-				UseCaseResult.Error("")
+				UseCaseResult.Error(result.exception)
 			}
 		}
 	}

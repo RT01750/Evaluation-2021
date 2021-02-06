@@ -103,6 +103,9 @@ class HomeFragment : BaseFragmentMVVM(), HomeCommunicator {
 		}
 	}
 	
+	/**
+	 * This method will be called every time new list response is collecteed
+	 */
 	private fun onNewsListAvailable(list : List<IHomeSection>?) {
 		showProgressBar(false)
 		Logger.d(TAG, "onNewsListAvailable - new list size ${list?.size}")
