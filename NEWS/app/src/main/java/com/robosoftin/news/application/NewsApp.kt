@@ -1,11 +1,13 @@
 package com.robosoftin.news.application
 
 import android.app.Application
+import androidx.databinding.DataBindingUtil
 import com.robosoftin.news.data.di.APIModule
 import com.robosoftin.news.data.di.dataManagerModule
 import com.robosoftin.news.data.di.netModule
 import com.robosoftin.news.data.di.repositoryModule
 import com.robosoftin.news.domain.di.useCaseModule
+import com.robosoftin.news.phone.ui.uitils.BindingComponent
 import com.robosoftin.news.phone.utility
 import com.robosoftin.news.phone.viewModelModule
 import org.koin.android.ext.koin.androidContext
@@ -21,7 +23,12 @@ class NewsApp : Application() {
 	}
 	
 	private fun initialize() {
+		initDataBinding()
 		initKoin()
+	}
+	
+	private fun initDataBinding() {
+		DataBindingUtil.setDefaultComponent(BindingComponent())
 	}
 	
 	/**
