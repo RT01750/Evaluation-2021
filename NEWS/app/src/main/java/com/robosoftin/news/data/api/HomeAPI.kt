@@ -20,6 +20,6 @@ interface HomeAPI {
 			@Query("q") country : String = "Technology",
 			@Query("apiKey") apiKey : String = BuildConfig.API_KEY,
 			@Query("page") page : Int = 1,
-			@Query("pageSize") pageSize : Int = 20
+			@Query("pageSize") pageSize : Int = 10
 	) : Deferred<NewsResponse>
 }

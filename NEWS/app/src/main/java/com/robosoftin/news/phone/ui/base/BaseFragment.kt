@@ -69,24 +69,8 @@ abstract class BaseFragment : Fragment() {
 		return null
 	}
 	
-	/**
-	 * todo check this comdition as is visible always do not work
-	 */
 	open fun showProgressBar(show : Boolean?) {
-		if (isVisible) {
-			when (show) {
-				true -> {
-					
-					rootBinder.progressBar.visibility = View.VISIBLE
-				}
-				else -> {
-					rootBinder.progressBar.visibility = View.GONE
-				}
-			}
-
-//			rootBinder.progressBar.visibility = if (true == show)
-//				View.VISIBLE else View.GONE
-		}
+		rootBinder.progressBar.visibility = if (show == true) View.VISIBLE else View.GONE
 	}
 	
 	protected fun showToastMessage(message : String?) {

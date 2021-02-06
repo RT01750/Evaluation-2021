@@ -135,6 +135,17 @@ class HomeFragment : BaseFragmentMVVM(), HomeCommunicator {
 		showToastMessage("Feature is yet to be in place!")
 	}
 	
+	
+	override fun toolBarSearchClick() {
+		super.toolBarSearchClick()
+		showToastMessage("Feature is yet to be in place!")
+	}
+	
+	override fun toolBarBookMarkClicked() {
+		super.toolBarBookMarkClicked()
+		showToastMessage("Feature is yet to be in place!")
+	}
+	
 	companion object {
 		private val TAG = HomeFragment::class.simpleName
 		

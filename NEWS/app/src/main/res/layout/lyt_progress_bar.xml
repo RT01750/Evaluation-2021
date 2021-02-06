@@ -13,10 +13,10 @@
         android:focusable="true" />
 
 
-    <ImageView
+    <ProgressBar
         android:id="@+id/loading_image"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
+        android:layout_width="@dimen/dp_50"
+        android:layout_height="@dimen/dp_50"
         android:layout_gravity="center" />
 
 </FrameLayout>
