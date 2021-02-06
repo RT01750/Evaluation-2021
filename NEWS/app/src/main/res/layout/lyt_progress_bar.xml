@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/disableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha=".5"
+        android:background="@color/white"
+        android:clickable="true"
+        android:focusable="true" />
+
+
+    <ImageView
+        android:id="@+id/loading_image"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_gravity="center" />
+
+</FrameLayout>
