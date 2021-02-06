@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.robosoftin.news.databinding.ActivityLauncherBinding
 import com.robosoftin.news.phone.presentation.BaseViewModel
 import com.robosoftin.news.phone.ui.base.BaseActivityMVVM
 
@@ -19,7 +20,7 @@ class LauncherActivity : BaseActivityMVVM() {
 	}
 	
 	override fun inflateView(parent : ViewGroup, inflater : LayoutInflater) : View? {
-		return null
+		return ActivityLauncherBinding.inflate(inflater, parent, false).root
 	}
 	
 	override fun onCreate(savedInstanceState : Bundle?) {
