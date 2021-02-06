@@ -1,16 +1,8 @@
-/*
- * Copyright (c) 2020.
- * Written for McDonalds from Robosoft Technologies Pvt Ltd
- *
- * Last modified : 24/8/20 9:48 PM
- * Author :  Akshay [akshay.prabhu@robosoftin.com]
- */
-
 package com.robosoftin.news.phone.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.il.data.utils.Logger
+import com.robosoftin.news.application.Logger
 import com.robosoftin.news.databinding.ItemPaginationProgressBinding
 import com.robosoftin.news.databinding.ItemPopularNewsBinding
 import com.robosoftin.news.databinding.ItemSectionHeaderBinding

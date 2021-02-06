@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.il.data.utils.Logger
-import com.il.domain.entity.toolbar.ToolBarConfig
+import com.robosoftin.news.application.Logger
+import com.robosoftin.news.domain.entity.ToolBarConfig
 import com.robosoftin.news.R
 import com.robosoftin.news.databinding.FragmentHomeBinding
 import com.robosoftin.news.domain.entity.ArticleEntity
@@ -17,7 +17,6 @@ import com.robosoftin.news.phone.presentation.HomeViewModel
 import com.robosoftin.news.phone.ui.base.BaseActivity
 import com.robosoftin.news.phone.ui.base.BaseFragmentMVVM
 import com.robosoftin.news.phone.ui.details.NewsDetailFragment
-import kotlinx.android.synthetic.main.activity_base.view.*
 import org.koin.android.ext.android.inject
 
 class HomeFragment : BaseFragmentMVVM(), HomeCommunicator {

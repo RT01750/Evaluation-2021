@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.il.data.utils.Logger
-import com.il.domain.entity.toolbar.ToolBarConfig
+import com.robosoftin.news.application.Logger
+import com.robosoftin.news.domain.entity.ToolBarConfig
 import com.robosoftin.news.phone.presentation.BaseViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope

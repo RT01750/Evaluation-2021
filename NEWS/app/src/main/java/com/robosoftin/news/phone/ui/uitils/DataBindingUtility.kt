@@ -5,7 +5,6 @@ import android.webkit.URLUtil
 import android.webkit.WebView
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
-import com.il.mcdelivery.phone.utils.ImageUtils
 
 
 class DataBindingUtility {

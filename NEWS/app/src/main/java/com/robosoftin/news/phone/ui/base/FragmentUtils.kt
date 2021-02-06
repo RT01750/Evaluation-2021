@@ -1,11 +1,4 @@
-/*
- * Copyright (c) 2020.
- * Written for McDonalds from Robosoft Technologies Pvt Ltd
- *
- * @Author Mithun M
- */
-
-package com.il.mcdelivery.phone.utils
+package com.robosoftin.news.phone.ui.base
 
 import android.os.Bundle
 import androidx.annotation.IdRes
@@ -53,10 +46,10 @@ class FragmentUtils {
 			ft.commit()
 		}
 	}
- 
 	
-	fun getBackStackFragmentTag(fm : FragmentManager,fragmentName : String) =
-            fm.findFragmentByTag(fragmentName)
+	
+	fun getBackStackFragmentTag(fm : FragmentManager, fragmentName : String) =
+			fm.findFragmentByTag(fragmentName)
 	
 	
 	fun getBackStackFragmentCount(fm : FragmentManager) =

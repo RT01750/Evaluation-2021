@@ -3,7 +3,7 @@ package com.robosoftin.news.phone.presentation
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.il.data.utils.Logger
+import com.robosoftin.news.application.Logger
 import com.robosoftin.news.domain.UseCaseResult
 import com.robosoftin.news.domain.entity.*
 import com.robosoftin.news.domain.home.HomeUseCase

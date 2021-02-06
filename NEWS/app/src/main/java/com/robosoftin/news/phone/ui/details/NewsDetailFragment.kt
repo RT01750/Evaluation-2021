@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.il.domain.entity.toolbar.ToolBarConfig
+import com.robosoftin.news.domain.entity.ToolBarConfig
 import com.robosoftin.news.databinding.FragmentNewsDetailsBinding
 import com.robosoftin.news.phone.presentation.BaseViewModel
 import com.robosoftin.news.phone.ui.base.BaseFragmentMVVM

@@ -1,17 +1,10 @@
-/*
- * Copyright (c) 2020.
- * Written for McDonalds from Robosoft Technologies Pvt Ltd
- *
- * @Author Mithun M
- */
-
 package com.robosoftin.news.phone.ui.base
 
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.webkit.URLUtil
-import com.il.data.utils.Logger
+import com.robosoftin.news.application.Logger
 import com.robosoftin.news.phone.presentation.BaseViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope

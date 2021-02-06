@@ -1,4 +1,4 @@
-package com.il.domain.entity.toolbar
+package com.robosoftin.news.domain.entity
 
 class ToolBarConfig(
 		var enabled : Boolean = false,

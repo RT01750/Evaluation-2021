@@ -1,15 +1,7 @@
-/*
- * Copyright (c) 2020.
- * Written for McDonalds from Robosoft Technologies Pvt Ltd
- *
- * @Author Mithun M
- */
-
 package com.robosoftin.news.data.manager
 
 import android.app.Application
 import android.content.SharedPreferences
-import com.il.data.utils.SecureSharedPreference
 
 class PreferenceManager(private val application : Application) {
 	

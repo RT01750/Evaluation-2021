@@ -1,10 +1,3 @@
-/*
- * Copyright (c) 2020.
- * Written for McDonalds from Robosoft Technologies Pvt Ltd
- *
- * @Author Mithun M
- */
-
 package com.robosoftin.news.data.api
 
 import com.robosoftin.news.BuildConfig
@@ -19,7 +12,7 @@ interface HomeAPI {
 			@Query("country") country : String = "in",
 			@Query("apiKey") apiKey : String = BuildConfig.API_KEY,
 			@Query("page") page : Int = 1,
-			@Query("pageSize") pageSize :Int = 20
+			@Query("pageSize") pageSize : Int = 20
 	) : Deferred<NewsResponse>
 	
 	@GET("/v2/everything")
@@ -27,5 +20,6 @@ interface HomeAPI {
 			@Query("q") country : String = "Technology",
 			@Query("apiKey") apiKey : String = BuildConfig.API_KEY,
 			@Query("page") page : Int = 1,
-			@Query("pageSize") pageSize :Int = 20
-	) : Deferred<NewsResponse>}
+			@Query("pageSize") pageSize : Int = 20
+	) : Deferred<NewsResponse>
+}

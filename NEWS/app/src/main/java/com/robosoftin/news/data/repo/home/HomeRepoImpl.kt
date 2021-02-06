@@ -1,22 +1,13 @@
-/******************************************************************************
- * Copyright (c) 2020.                                                        *
- * Written for McDonalds from Robosoft Technologies Pvt Ltd                   *
- *                                                                            *
- * @Author Mithun M                                                           *
- ******************************************************************************/
-
-package com.il.data.repository.promotion
+package com.robosoftin.news.data.repo.home
 
 import com.robosoftin.news.data.api.HomeAPI
 import com.robosoftin.news.data.dto.NewsResponse
 import com.robosoftin.news.data.dto.toErrorModel
 import com.robosoftin.news.data.repo.RepositoryResult
-import com.robosoftin.news.data.repo.home.HomeRepo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class HomeRepoImpl(
-		//Should directly have API
 		private val api : HomeAPI
 ) : HomeRepo {
 	override suspend fun fetchTopNews() : RepositoryResult<NewsResponse> {

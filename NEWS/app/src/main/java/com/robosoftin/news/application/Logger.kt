@@ -1,12 +1,4 @@
-/*
- * Copyright (c) 2020.
- * Written for McDonalds from Robosoft Technologies Pvt Ltd
- *
- * Last modified : 8/9/20 2:07 PM
- * Author :  Akshay [akshay.prabhu@robosoftin.com]
- */
-
-package com.il.data.utils
+package com.robosoftin.news.application
 
 import android.util.Log
 import com.robosoftin.news.BuildConfig

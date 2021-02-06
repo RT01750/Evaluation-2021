@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
-import com.il.mcdelivery.phone.utils.FragmentUtils
 import com.robosoftin.news.R
 import com.robosoftin.news.databinding.ActivityBaseBinding
 import org.koin.android.ext.android.inject

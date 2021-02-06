@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import com.il.mcdelivery.phone.utils.FragmentUtils
 import com.robosoftin.news.R
 import com.robosoftin.news.databinding.FragmentBaseBinding
 import com.robosoftin.news.databinding.LayoutToolbarBinding
