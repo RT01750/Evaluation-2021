@@ -8,6 +8,10 @@
         <variable
             name="model"
             type="com.robosoftin.news.domain.entity.ArticleEntity" />
+
+        <import type="android.text.TextUtils" />
+
+        <import type="android.view.View" />
     </data>
 
     <RelativeLayout
@@ -25,6 +29,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_alignTop="@id/title"
+            android:layout_marginEnd="@dimen/dp_10"
             android:scaleType="centerInside" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -32,6 +37,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/image"
+            android:ellipsize="end"
+            android:maxLines="3"
             android:text="@{model.title}"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_18"
@@ -45,6 +52,8 @@
             android:layout_below="@id/title"
             android:layout_marginTop="@dimen/dp_5"
             android:layout_toEndOf="@id/image"
+            android:ellipsize="end"
+            android:maxLines="3"
             android:text="@{model.description}"
             android:textColor="#777777"
             android:textSize="@dimen/sp_14"
@@ -56,15 +65,19 @@
             android:id="@+id/source"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/description"
+            android:layout_alignBottom="@id/bookMarkBtn"
             android:layout_marginTop="@dimen/dp_5"
             android:layout_toEndOf="@id/image"
             android:background="#F7F4F4"
-            android:padding="@dimen/dp_8"
+            android:paddingStart="@dimen/dp_8"
+            android:paddingTop="@dimen/dp_3"
+            android:paddingEnd="@dimen/dp_8"
+            android:paddingBottom="@dimen/dp_3"
             android:text="@{model.source}"
             android:textColor="#575757"
-            android:textSize="@dimen/sp_18"
+            android:textSize="@dimen/sp_14"
             android:textStyle="bold"
+            android:visibility="@{!TextUtils.isEmpty(model.source)?View.VISIBLE:View.GONE}"
             tools:text="Top News" />
 
         <ImageView

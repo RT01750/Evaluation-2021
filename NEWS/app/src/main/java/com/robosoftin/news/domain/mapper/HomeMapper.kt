@@ -8,7 +8,7 @@ fun Article.toArticle(isTopNews : Boolean) : ArticleEntity {
 	return (ArticleEntity(
 			title = title,
 			description = description,
-			source = "",
+			source = source?.name,
 			imageUrl = urlToImage,
 			detailsUrl = url,
 			isBookMarked = false,

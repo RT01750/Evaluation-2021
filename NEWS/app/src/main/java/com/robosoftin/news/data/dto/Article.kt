@@ -18,6 +18,8 @@ import com.google.gson.annotations.SerializedName
 }
  */
 data class Article(
+		@SerializedName("source")
+		val source : Source?,
 		@SerializedName("author")
 		val author : String,
 		@SerializedName("title")
@@ -33,3 +35,5 @@ data class Article(
 		@SerializedName("content")
 		val content : String?
 )
+
+data class Source(@SerializedName("name") val name : String?)

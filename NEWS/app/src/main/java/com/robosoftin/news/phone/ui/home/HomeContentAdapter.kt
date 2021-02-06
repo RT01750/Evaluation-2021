@@ -137,7 +137,7 @@ class HomeContentAdapter(private val communicator : HomeCommunicator) : BaseRecy
 	}
 }
 
-class TopNewsItemViewHolder(val binder : ItemTopNewsBinding) : BaseRecyclerViewHolder(binder.root) {
+class TopNewsItemViewHolder(private val binder : ItemTopNewsBinding) : BaseRecyclerViewHolder(binder.root) {
 	fun bindTopNews(newsItem : IHomeSection?) {
 		if (newsItem is ArticleEntity) {
 			binder.model = newsItem
@@ -151,7 +151,7 @@ class TopNewsItemViewHolder(val binder : ItemTopNewsBinding) : BaseRecyclerViewH
 
 /**
  */
-class PopularNewsItemViewHolder(val binder : ItemPopularNewsBinding) : BaseRecyclerViewHolder(binder.root) {
+class PopularNewsItemViewHolder(private val binder : ItemPopularNewsBinding) : BaseRecyclerViewHolder(binder.root) {
 	fun bindTopNews(newsItem : IHomeSection?) {
 		if (newsItem is ArticleEntity) {
 			binder.model = newsItem
@@ -165,7 +165,7 @@ class PopularNewsItemViewHolder(val binder : ItemPopularNewsBinding) : BaseRecyc
 	
 }
 
-class SectionHeaderViewHolder(val binder : ItemSectionHeaderBinding) : BaseRecyclerViewHolder(binder.root) {
+class SectionHeaderViewHolder(private val binder : ItemSectionHeaderBinding) : BaseRecyclerViewHolder(binder.root) {
 	fun setHeader(item : IHomeSection?) {
 		if (item is SectionHeader) {
 			binder.header = item
