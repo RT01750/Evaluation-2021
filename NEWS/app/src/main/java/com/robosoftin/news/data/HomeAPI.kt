@@ -22,9 +22,9 @@ interface HomeAPI {
 			@Query("pageSize") pageSize :Int = 20
 	) : Deferred<TopNews>
 	
-	@GET("/v2/top-headlines")
+	@GET("/v2/everything")
 	fun getPopularNewsAsync(
-			@Query("country") country : String = "in",
+			@Query("q") country : String = "Technology",
 			@Query("apiKey") apiKey : String = BuildConfig.API_KEY,
 			@Query("page") page : Int = 1,
 			@Query("pageSize") pageSize :Int = 20
