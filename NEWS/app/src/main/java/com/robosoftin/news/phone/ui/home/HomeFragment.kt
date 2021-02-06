@@ -41,8 +41,18 @@ class HomeFragment : BaseFragmentMVVM(), HomeCommunicator {
 		super.onViewCreated(view, savedInstanceState)
 		initViews()
 	}
+	
 	private fun initViews() {
-		setUpToolbar(ToolBarConfig(enabled = true, title = ""))
+		setUpToolbar(
+				ToolBarConfig(
+						enabled = true,
+						title = "",
+						logoEnabled = true,
+						backBtnEnabled = false,
+						bookMarkEnabled = true,
+						searchBtnEnabled = true
+				)
+		)
 		// Recycler view configuration
 		binder.homeContentList.apply {
 			lytManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)

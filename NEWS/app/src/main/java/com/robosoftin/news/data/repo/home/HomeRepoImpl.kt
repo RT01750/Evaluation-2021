@@ -31,10 +31,9 @@ class HomeRepoImpl(
 	}
 	
 	override suspend fun fetchPopularNews(pageSize : Int, page : Int) : RepositoryResult<TopNews> {
-		
 		return try {
 			val result = withContext(Dispatchers.IO) {
-				api.getPopularNewsAsync(pageSize, page).await()
+				api.getPopularNewsAsync(pageSize = pageSize, page = page).await()
 			}
 			RepositoryResult.Success(result)
 		} catch (e : Exception) {

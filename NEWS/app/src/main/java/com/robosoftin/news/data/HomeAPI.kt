@@ -22,5 +22,10 @@ interface HomeAPI {
 			@Query("pageSize") pageSize :Int = 20
 	) : Deferred<TopNews>
 	
-	fun getPopularNewsAsync(pageSize : Int, page : Int) = getSingleTopNewsAsync(page = page, pageSize = pageSize)
-}
+	@GET("/v2/top-headlines")
+	fun getPopularNewsAsync(
+			@Query("country") country : String = "in",
+			@Query("apiKey") apiKey : String = BuildConfig.API_KEY,
+			@Query("page") page : Int = 1,
+			@Query("pageSize") pageSize :Int = 20
+	) : Deferred<TopNews>}

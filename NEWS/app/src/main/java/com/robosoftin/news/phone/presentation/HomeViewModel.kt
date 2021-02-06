@@ -17,7 +17,7 @@ class HomeViewModel(
 ) : BaseViewModel(application) {
 	
 	companion object {
-		const val NEWS_LIST_PAGE_SIZE = 20
+		const val NEWS_LIST_PAGE_SIZE = 10
 		private val TAG = HomeViewModel::class.simpleName
 	}
 	

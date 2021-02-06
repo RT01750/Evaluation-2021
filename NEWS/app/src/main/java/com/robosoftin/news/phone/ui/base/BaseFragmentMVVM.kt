@@ -112,6 +112,10 @@ abstract class BaseFragmentMVVM : BaseFragment(),
 		/*todo handle search click in subsequent fragments*/
 	}
 	
+	open fun toolBarBookMarkClicked() {
+	
+	}
+	
 	private fun observeUILiveData(viewModel : BaseViewModel) {
 		searchText.observe(this, Observer { oSearchTextChanged(it) })
 	}

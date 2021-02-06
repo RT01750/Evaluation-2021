@@ -32,8 +32,20 @@
             android:onClick="@{()->fragment.toolbarBackClick()}"
             android:paddingLeft="@dimen/dp_10"
             android:paddingRight="@dimen/dp_10"
-            android:src="@android:drawable/alert_dark_frame"
+            android:src="@drawable/ic_back_btn"
             android:visibility="@{fragment.toolBarConfig.backBtnEnabled ? View.VISIBLE:View.INVISIBLE}" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/backBtn"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/dp_5"
+            android:paddingLeft="@dimen/dp_10"
+            android:paddingRight="@dimen/dp_10"
+            android:src="@drawable/ic_logo_toolbar"
+            android:visibility="@{fragment.toolBarConfig.logoEnabled ? View.VISIBLE:View.INVISIBLE}" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txtTitle"
@@ -64,6 +76,7 @@
                 android:layout_centerVertical="true"
                 android:layout_toStartOf="@id/searchClose"
                 android:background="@null"
+                android:drawableStart="@drawable/ic_search"
                 android:drawablePadding="@dimen/dp_5"
                 android:hint="@{fragment.toolBarConfig.searchHint}"
                 android:imeOptions="actionDone"
@@ -94,6 +107,20 @@
         </RelativeLayout>
 
         <ImageView
+            android:id="@+id/bookMarkBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp_5"
+            android:layout_marginEnd="@dimen/dp_5"
+            android:onClick="@{()->fragment.toolBarBookMarkClicked()}"
+            android:paddingLeft="@dimen/dp_10"
+            android:paddingRight="@dimen/dp_10"
+            android:layout_toStartOf="@id/searchBtn"
+            android:src="@drawable/ic_bookmark"
+            android:visibility="@{fragment.toolBarConfig.searchBtnEnabled ? View.VISIBLE:View.GONE}" />
+
+        <ImageView
             android:id="@+id/searchBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -104,7 +131,7 @@
             android:onClick="@{()->fragment.toolBarSearchClick()}"
             android:paddingLeft="@dimen/dp_10"
             android:paddingRight="@dimen/dp_10"
-            android:src="@drawable/abc_vector_test"
+            android:src="@drawable/ic_search"
             android:visibility="@{fragment.toolBarConfig.searchBtnEnabled ? View.VISIBLE:View.GONE}" />
 
 
