@@ -8,11 +8,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.il.data.utils.Logger
 import com.il.domain.entity.toolbar.ToolBarConfig
+import com.robosoftin.news.R
 import com.robosoftin.news.databinding.FragmentHomeBinding
+import com.robosoftin.news.domain.entity.ArticleEntity
 import com.robosoftin.news.domain.entity.IHomeSection
 import com.robosoftin.news.phone.presentation.BaseViewModel
 import com.robosoftin.news.phone.presentation.HomeViewModel
+import com.robosoftin.news.phone.ui.base.BaseActivity
 import com.robosoftin.news.phone.ui.base.BaseFragmentMVVM
+import com.robosoftin.news.phone.ui.details.NewsDetailFragment
+import kotlinx.android.synthetic.main.activity_base.view.*
 import org.koin.android.ext.android.inject
 
 class HomeFragment : BaseFragmentMVVM(), HomeCommunicator {
@@ -113,11 +118,27 @@ class HomeFragment : BaseFragmentMVVM(), HomeCommunicator {
 	}
 	
 	
-	companion object {
-		private val TAG = HomeFragment::class.simpleName
+	override fun onDestroy() {
+		binder.unbind()
+		super.onDestroy()
 	}
 	
-	override fun onHomeItemClick(item : IHomeSection) {
-		Logger.d(TAG, "onHomeItemClick")
+	
+	override fun onNewsItemClicked(item : ArticleEntity) {
+		if (activity is BaseActivity) {
+			if (!item.detailsUrl.isNullOrEmpty()) {
+				(activity as BaseActivity).addFragment(R.id.base_container, NewsDetailFragment.newInstance(item.detailsUrl))
+			}
+		}
+	}
+	
+	override fun onBookMarkClicked(item : ArticleEntity) {
+		showToastMessage("Feature is yet to be in place!")
+	}
+	
+	companion object {
+		private val TAG = HomeFragment::class.simpleName
+		
+		fun newInstance() = HomeFragment()
 	}
 }

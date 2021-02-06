@@ -27,6 +27,6 @@ class ContainerActivity : BaseActivityMVVM() {
 	}
 	
 	private fun loadHomeScreen() {
-		replaceFragment(R.id.base_container, HomeFragment(), addToBackStack = false)
+		replaceFragment(R.id.base_container, HomeFragment.newInstance(), addToBackStack = false)
 	}
 }

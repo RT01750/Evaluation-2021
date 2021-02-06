@@ -52,10 +52,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dp_30"
             android:layout_toStartOf="@id/searchBtn"
             android:layout_toEndOf="@id/backBtn"
+            android:ellipsize="middle"
+            android:singleLine="true"
             android:text="@{fragment.toolBarConfig.title}"
-            android:textSize="@dimen/sp_22"
+            android:textSize="@dimen/sp_14"
             android:textStyle="bold"
             android:visibility="@{!TextUtils.isEmpty(fragment.toolBarConfig.title)?View.VISIBLE:View.GONE}" />
 
@@ -113,10 +116,10 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/dp_5"
             android:layout_marginEnd="@dimen/dp_5"
+            android:layout_toStartOf="@id/searchBtn"
             android:onClick="@{()->fragment.toolBarBookMarkClicked()}"
             android:paddingLeft="@dimen/dp_10"
             android:paddingRight="@dimen/dp_10"
-            android:layout_toStartOf="@id/searchBtn"
             android:src="@drawable/ic_bookmark"
             android:visibility="@{fragment.toolBarConfig.searchBtnEnabled ? View.VISIBLE:View.GONE}" />
 

@@ -66,12 +66,10 @@ class HomeContentAdapter(private val communicator : HomeCommunicator) : BaseRecy
 	override fun bindDataToHolder(holder : BaseRecyclerViewHolder, position : Int) {
 		when (holder) {
 			is TopNewsItemViewHolder -> {
-				holder.bindTopNews(homeItemList.get(position))
-				holder.addListener(communicator, position)
+				holder.bindTopNews(homeItemList.get(position), communicator)
 			}
 			is PopularNewsItemViewHolder -> {
-				holder.bindTopNews(homeItemList.get(position))
-				holder.addListener(communicator, position)
+				holder.bindTopNews(homeItemList.get(position), communicator)
 			}
 			is SectionHeaderViewHolder -> {
 				holder.setHeader(homeItemList.get(position))
@@ -86,7 +84,7 @@ class HomeContentAdapter(private val communicator : HomeCommunicator) : BaseRecy
 	}
 	
 	/**
-	 * Add order list to the item
+	 * Add news list to the item
 	 */
 	fun appendNewNewsList(newsList : List<IHomeSection>?) {
 		Logger.d(TAG, "appendNewNewsList: Size - ${newsList?.size}")
@@ -138,31 +136,21 @@ class HomeContentAdapter(private val communicator : HomeCommunicator) : BaseRecy
 }
 
 class TopNewsItemViewHolder(private val binder : ItemTopNewsBinding) : BaseRecyclerViewHolder(binder.root) {
-	fun bindTopNews(newsItem : IHomeSection?) {
+	fun bindTopNews(newsItem : IHomeSection?, communicator : HomeCommunicator) {
 		if (newsItem is ArticleEntity) {
 			binder.model = newsItem
+			binder.comminicator = communicator
 		}
 	}
-	
-	fun addListener(communicator : HomeCommunicator, position : Int) {
-	}
-	
 }
 
-/**
- */
 class PopularNewsItemViewHolder(private val binder : ItemPopularNewsBinding) : BaseRecyclerViewHolder(binder.root) {
-	fun bindTopNews(newsItem : IHomeSection?) {
+	fun bindTopNews(newsItem : IHomeSection?, communicator : HomeCommunicator) {
 		if (newsItem is ArticleEntity) {
 			binder.model = newsItem
+			binder.comminicator = communicator
 		}
-		
 	}
-	
-	fun addListener(newsItem : HomeCommunicator, position : Int) {
-//		TODO("Not yet implemented")
-	}
-	
 }
 
 class SectionHeaderViewHolder(private val binder : ItemSectionHeaderBinding) : BaseRecyclerViewHolder(binder.root) {
@@ -178,5 +166,7 @@ class PaginationProgressItem(binder : ItemPaginationProgressBinding) :
 		BaseRecyclerViewHolder(binder.root)
 
 interface HomeCommunicator {
-	fun onHomeItemClick(item : IHomeSection)
+	fun onNewsItemClicked(item : ArticleEntity)
+	
+	fun onBookMarkClicked(item : ArticleEntity)
 }

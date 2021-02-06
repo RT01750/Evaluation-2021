@@ -9,6 +9,10 @@
             name="model"
             type="com.robosoftin.news.domain.entity.ArticleEntity" />
 
+        <variable
+            name="comminicator"
+            type="com.robosoftin.news.phone.ui.home.HomeCommunicator" />
+
         <import type="android.text.TextUtils" />
 
         <import type="android.view.View" />
@@ -17,6 +21,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="@{() -> comminicator.onNewsItemClicked(model)}"
         android:orientation="vertical"
         android:paddingStart="@dimen/dp_16"
         android:paddingTop="@dimen/dp_10"
@@ -87,6 +92,7 @@
             android:layout_below="@id/description"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/dp_5"
+            android:onClick="@{() -> comminicator.onBookMarkClicked(model)}"
             android:padding="@dimen/dp_8"
             android:src="@drawable/ic_bookmark" />
 

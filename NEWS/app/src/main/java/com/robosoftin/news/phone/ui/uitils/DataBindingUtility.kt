@@ -2,6 +2,7 @@ package com.robosoftin.news.phone.ui.uitils
 
 import android.view.View
 import android.webkit.URLUtil
+import android.webkit.WebView
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.il.mcdelivery.phone.utils.ImageUtils
@@ -36,5 +37,10 @@ class DataBindingUtility {
 	@BindingAdapter("visibility")
 	fun changeVisibility(view : View, visible : Boolean) {
 		view.visibility = if (visible) View.VISIBLE else View.GONE
+	}
+	
+	@BindingAdapter("android:url")
+	fun WebView.setContentUrl(url : String) {
+		loadUrl(url)
 	}
 }
